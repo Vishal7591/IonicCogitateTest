@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title style="text-align: center">
+      Products Summary
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h1>{{this.order}} Order Placed</h1>
+  <ion-list>
+    <ion-row *ngFor="let prod of products; let i=index">
+      <ion-col>
+        <ion-avatar style="height:40px;width:40px;border-radius: 100%"><img *ngIf="prod.photp!='undefined'" src="{{prod.photo}}">
+          <img *ngIf="prod.photo=='undefined'" src="https://via.placeholder.com/150">
+        </ion-avatar>
+      </ion-col>
+      <ion-col>{{prod.name}}</ion-col>
+      <ion-col>{{prod.size}}</ion-col>
+    </ion-row>
+  </ion-list>
+
+  <h1>{{this.order}} Order Completed</h1>
+  <ion-list>
+    <ion-row>
+      <ion-col col-2>
+        <h5>Image</h5>
+      </ion-col>
+      <ion-col col-3>
+        <h5>Brand</h5>
+      </ion-col>
+      <ion-col>
+        <h5>Size</h5>
+      </ion-col>
+      <ion-col>
+        <h5>Price</h5>
+      </ion-col>
+      <ion-col>
+        <h5>Status</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let prod of productsWithStatus; let i=index">
+      <ion-col col-2>
+        <ion-avatar style="height:40px;width:40px;border-radius: 100%"><img *ngIf="prod.photp!='undefined'" src="{{prod.photo}}">
+          <img *ngIf="prod.photo=='undefined'" src="https://via.placeholder.com/150">
+        </ion-avatar>
+      </ion-col>
+      <ion-col col-3>{{prod.name}}</ion-col>
+      <ion-col>{{prod.size}}</ion-col>
+      <ion-col>{{prod.charges}}</ion-col>
+      <ion-col><label style="color:red">{{prod.status}}</label></ion-col>
+    </ion-row>
+  </ion-list>
+</ion-content>
